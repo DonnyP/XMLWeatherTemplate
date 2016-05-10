@@ -37,12 +37,16 @@
             this.currentTempOut = new System.Windows.Forms.Label();
             this.maxOutput = new System.Windows.Forms.Label();
             this.cityOutput = new System.Windows.Forms.Label();
+            this.day3Button = new System.Windows.Forms.Button();
+            this.day2Button = new System.Windows.Forms.Button();
+            this.day4Button = new System.Windows.Forms.Button();
+            this.day1Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // day2Clouds
             // 
             this.day2Clouds.AutoSize = true;
-            this.day2Clouds.Location = new System.Drawing.Point(123, 101);
+            this.day2Clouds.Location = new System.Drawing.Point(127, 244);
             this.day2Clouds.Name = "day2Clouds";
             this.day2Clouds.Size = new System.Drawing.Size(62, 13);
             this.day2Clouds.TabIndex = 17;
@@ -51,7 +55,7 @@
             // day1Clouds
             // 
             this.day1Clouds.AutoSize = true;
-            this.day1Clouds.Location = new System.Drawing.Point(24, 101);
+            this.day1Clouds.Location = new System.Drawing.Point(28, 244);
             this.day1Clouds.Name = "day1Clouds";
             this.day1Clouds.Size = new System.Drawing.Size(62, 13);
             this.day1Clouds.TabIndex = 16;
@@ -60,7 +64,7 @@
             // min2Output
             // 
             this.min2Output.AutoSize = true;
-            this.min2Output.Location = new System.Drawing.Point(124, 152);
+            this.min2Output.Location = new System.Drawing.Point(128, 295);
             this.min2Output.Name = "min2Output";
             this.min2Output.Size = new System.Drawing.Size(61, 13);
             this.min2Output.TabIndex = 15;
@@ -69,7 +73,7 @@
             // max2Output
             // 
             this.max2Output.AutoSize = true;
-            this.max2Output.Location = new System.Drawing.Point(124, 192);
+            this.max2Output.Location = new System.Drawing.Point(124, 335);
             this.max2Output.Name = "max2Output";
             this.max2Output.Size = new System.Drawing.Size(64, 13);
             this.max2Output.TabIndex = 14;
@@ -78,7 +82,7 @@
             // minOutput
             // 
             this.minOutput.AutoSize = true;
-            this.minOutput.Location = new System.Drawing.Point(28, 152);
+            this.minOutput.Location = new System.Drawing.Point(32, 295);
             this.minOutput.Name = "minOutput";
             this.minOutput.Size = new System.Drawing.Size(55, 13);
             this.minOutput.TabIndex = 13;
@@ -105,7 +109,7 @@
             // maxOutput
             // 
             this.maxOutput.AutoSize = true;
-            this.maxOutput.Location = new System.Drawing.Point(28, 192);
+            this.maxOutput.Location = new System.Drawing.Point(28, 335);
             this.maxOutput.Name = "maxOutput";
             this.maxOutput.Size = new System.Drawing.Size(58, 13);
             this.maxOutput.TabIndex = 10;
@@ -114,17 +118,58 @@
             // cityOutput
             // 
             this.cityOutput.AutoSize = true;
-            this.cityOutput.Location = new System.Drawing.Point(92, 53);
+            this.cityOutput.Location = new System.Drawing.Point(89, 16);
             this.cityOutput.Name = "cityOutput";
             this.cityOutput.Size = new System.Drawing.Size(55, 13);
             this.cityOutput.TabIndex = 9;
             this.cityOutput.Text = "cityOutput";
+            // 
+            // day3Button
+            // 
+            this.day3Button.Location = new System.Drawing.Point(35, 203);
+            this.day3Button.Name = "day3Button";
+            this.day3Button.Size = new System.Drawing.Size(75, 23);
+            this.day3Button.TabIndex = 18;
+            this.day3Button.Text = "day3Button";
+            this.day3Button.UseVisualStyleBackColor = true;
+            this.day3Button.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // day2Button
+            // 
+            this.day2Button.Location = new System.Drawing.Point(127, 174);
+            this.day2Button.Name = "day2Button";
+            this.day2Button.Size = new System.Drawing.Size(75, 23);
+            this.day2Button.TabIndex = 19;
+            this.day2Button.Text = "day2Button";
+            this.day2Button.UseVisualStyleBackColor = true;
+            // 
+            // day4Button
+            // 
+            this.day4Button.Location = new System.Drawing.Point(131, 203);
+            this.day4Button.Name = "day4Button";
+            this.day4Button.Size = new System.Drawing.Size(75, 23);
+            this.day4Button.TabIndex = 20;
+            this.day4Button.Text = "day4Button";
+            this.day4Button.UseVisualStyleBackColor = true;
+            // 
+            // day1Button
+            // 
+            this.day1Button.Location = new System.Drawing.Point(35, 174);
+            this.day1Button.Name = "day1Button";
+            this.day1Button.Size = new System.Drawing.Size(75, 23);
+            this.day1Button.TabIndex = 21;
+            this.day1Button.Text = "day1Button";
+            this.day1Button.UseVisualStyleBackColor = true;
             // 
             // loadScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.day1Button);
+            this.Controls.Add(this.day4Button);
+            this.Controls.Add(this.day2Button);
+            this.Controls.Add(this.day3Button);
             this.Controls.Add(this.day2Clouds);
             this.Controls.Add(this.day1Clouds);
             this.Controls.Add(this.min2Output);
@@ -152,5 +197,9 @@
         private System.Windows.Forms.Label currentTempOut;
         private System.Windows.Forms.Label maxOutput;
         private System.Windows.Forms.Label cityOutput;
+        private System.Windows.Forms.Button day3Button;
+        private System.Windows.Forms.Button day2Button;
+        private System.Windows.Forms.Button day4Button;
+        private System.Windows.Forms.Button day1Button;
     }
 }

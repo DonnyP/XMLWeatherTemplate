@@ -13,6 +13,10 @@ namespace XMLWeather
 {
     public partial class loadScreen : UserControl
     {
+        int day;
+
+        List<ForecastClass> days = new List<ForecastClass>();
+
         public loadScreen()
         {
             InitializeComponent();
@@ -20,9 +24,10 @@ namespace XMLWeather
             GetData();
 
             // take info from the current weather file and display it to the screen
-            //ExtractCurrent();
+            ExtractCurrent();
 
             // take info from the forecast weather file and display it to the screen
+
             ExtractForecast();
         }
         private static void GetData()
@@ -74,6 +79,10 @@ namespace XMLWeather
 
         private void ExtractForecast()
         {
+            string rain, high, low, windDirection, windSpeed, date;
+            rain = high = low = windDirection = windSpeed = date = "";
+
+
             XmlDocument doc = new XmlDocument();
             doc.Load("WeatherData7Day.xml");
 
@@ -81,57 +90,129 @@ namespace XMLWeather
             XmlNode parent;
             parent = doc.DocumentElement;
 
-            int day = 1;
+            // int day = 1;
 
-            //check each child parent element
             foreach (XmlNode child in parent.ChildNodes)
             {
                 if (child.Name == "forecast")
                 {
                     foreach (XmlNode grandChild in child.ChildNodes)
                     {
-                        foreach (XmlNode greatGrandChild in grandChild.ChildNodes)
+                        switch (day)
                         {
-                            if (greatGrandChild.Name == "temperature")
-                            {
-                                switch (day)
+                            case 1:
+                                #region day 1
+                                if (grandChild.Name == "time")
                                 {
-                                    case 1:
-                                        minOutput.Text = greatGrandChild.Attributes["min"].Value;
-                                        maxOutput.Text = greatGrandChild.Attributes["max"].Value;
-                                        break;
-                                    case 2:
-                                        min2Output.Text = greatGrandChild.Attributes["min"].Value;
-                                        max2Output.Text = greatGrandChild.Attributes["max"].Value;
-                                        break;
-                                    default:
-                                        break;
+                                    date = grandChild.Attributes["days"].Value;
                                 }
-
-                            }
-                            if (greatGrandChild.Name == "clouds")
-                            {
-                                switch (day)
+                                foreach (XmlNode greatGrandChild in grandChild.ChildNodes)
                                 {
-                                    case 1:
-                                        day1Clouds.Text = greatGrandChild.Attributes["value"].Value;
-                                        day++;
-                                        break;
-                                    case 2:
-                                        day2Clouds.Text = greatGrandChild.Attributes["value"].Value;
-                                        day++;
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            }
+                                    if (greatGrandChild.Name == "symbol")
+                                    {
+                                        rain = greatGrandChild.Attributes["name"].Value + " ";
+                                    }
 
+                                    if (greatGrandChild.Name == "windDirection")
+                                    {
+                                        windDirection = greatGrandChild.Attributes["name"].Value + "";
+                                    }
+
+                                    if (greatGrandChild.Name == "windSpeed")
+                                    {
+                                        windSpeed = greatGrandChild.Attributes["mps"].Value;
+                                    }
+                                    if (greatGrandChild.Name == "temperature")
+                                    {
+                                        high = greatGrandChild.Attributes["max"].Value;
+                                        low = greatGrandChild.Attributes["min"].Value;
+                                    }
+
+                                }
+                                ForecastClass fc = new ForecastClass(high, low, windDirection, windSpeed, rain, date);
+                                days.Add(fc);
+                                day++;
+                                #endregion
+                                break;
                         }
                     }
                 }
 
-            }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //check each child parent element
+                //foreach (XmlNode child in parent.ChildNodes)
+                //{
+                //    if (child.Name == "forecast")
+                //    {
+                //        foreach (XmlNode grandChild in child.ChildNodes)
+                //        {
+                //            foreach (XmlNode greatGrandChild in grandChild.ChildNodes)
+                //            {
+                //                if (greatGrandChild.Name == "temperature")
+                //                {
+                //                    switch (day)
+                //                    {
+                //                        case 1:
+                //                            minOutput.Text = greatGrandChild.Attributes["min"].Value;
+                //                            maxOutput.Text = greatGrandChild.Attributes["max"].Value;
+                //                            break;
+                //                        case 2:
+                //                            min2Output.Text = greatGrandChild.Attributes["min"].Value;
+                //                            max2Output.Text = greatGrandChild.Attributes["max"].Value;
+                //                            break;
+                //                        default:
+                //                            break;
+                //                    }
+
+                //                }
+                //                if (greatGrandChild.Name == "clouds")
+                //                {
+                //                    switch (day)
+                //                    {
+                //                        case 1:
+                //                            day1Clouds.Text = greatGrandChild.Attributes["value"].Value;
+                //                            day++;
+                //                            break;
+                //                        case 2:
+                //                            day2Clouds.Text = greatGrandChild.Attributes["value"].Value;
+                //                            day++;
+                //                            break;
+                //                        default:
+                //                            break;
+                //                    }
+                //                }
+
+                //            }
+                //        }
+                //    }
+
+                //}
+
+            }
         }
 
 
@@ -140,6 +221,10 @@ namespace XMLWeather
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
