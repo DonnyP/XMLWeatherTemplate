@@ -69,7 +69,7 @@ namespace XMLWeather
                     {
                         if (grandChild.Name == "speed")
                         {
-                            windDescOut.Text = grandChild.Attributes["name"].Value;
+                            windSpeed.Text = grandChild.Attributes["name"].Value;
                         }
                     }
                 }
@@ -127,12 +127,113 @@ namespace XMLWeather
                                         high = greatGrandChild.Attributes["max"].Value;
                                         low = greatGrandChild.Attributes["min"].Value;
                                     }
-
                                 }
                                 ForecastClass fc = new ForecastClass(high, low, windDirection, windSpeed, rain, date);
                                 days.Add(fc);
                                 day++;
                                 #endregion
+                                break;
+                            case 2:
+                                #region day 2
+                                if (grandChild.Name == "time")
+                                {
+                                    date = grandChild.Attributes["days"].Value;
+                                }
+                                foreach (XmlNode greatGrandChild in grandChild.ChildNodes)
+                                {
+                                    if (greatGrandChild.Name == "symbol")
+                                    {
+                                        rain = greatGrandChild.Attributes["name"].Value + " ";
+                                    }
+
+                                    if (greatGrandChild.Name == "windDirection")
+                                    {
+                                        windDirection = greatGrandChild.Attributes["name"].Value + "";
+                                    }
+
+                                    if (greatGrandChild.Name == "windSpeed")
+                                    {
+                                        windSpeed = greatGrandChild.Attributes["mps"].Value;
+                                    }
+                                    if (greatGrandChild.Name == "temperature")
+                                    {
+                                        high = greatGrandChild.Attributes["max"].Value;
+                                        low = greatGrandChild.Attributes["min"].Value;
+                                    }
+                                }
+                                ForecastClass fc2 = new ForecastClass(high, low, windDirection, windSpeed, rain, date);
+                                days.Add(fc2);
+                                day++;
+                                #endregion
+                                break;
+
+                            case 3:
+                                #region day 3
+                                if (grandChild.Name == "time")
+                                {
+                                    date = grandChild.Attributes["days"].Value;
+                                }
+                                foreach (XmlNode greatGrandChild in grandChild.ChildNodes)
+                                {
+                                    if (greatGrandChild.Name == "symbol")
+                                    {
+                                        rain = greatGrandChild.Attributes["name"].Value + " ";
+                                    }
+
+                                    if (greatGrandChild.Name == "windDirection")
+                                    {
+                                        windDirection = greatGrandChild.Attributes["name"].Value + "";
+                                    }
+
+                                    if (greatGrandChild.Name == "windSpeed")
+                                    {
+                                        windSpeed = greatGrandChild.Attributes["mps"].Value;
+                                    }
+                                    if (greatGrandChild.Name == "temperature")
+                                    {
+                                        high = greatGrandChild.Attributes["max"].Value;
+                                        low = greatGrandChild.Attributes["min"].Value;
+                                    }
+                                }
+                                ForecastClass fc3 = new ForecastClass(high, low, windDirection, windSpeed, rain, date);
+                                days.Add(fc3);
+                                day++;
+                                #endregion
+                                break;
+                            case 4:
+                                #region day 4
+                                if (grandChild.Name == "time")
+                                {
+                                    date = grandChild.Attributes["days"].Value;
+                                }
+                                foreach (XmlNode greatGrandChild in grandChild.ChildNodes)
+                                {
+                                    if (greatGrandChild.Name == "symbol")
+                                    {
+                                        rain = greatGrandChild.Attributes["name"].Value + " ";
+                                    }
+
+                                    if (greatGrandChild.Name == "windDirection")
+                                    {
+                                        windDirection = greatGrandChild.Attributes["name"].Value + "";
+                                    }
+
+                                    if (greatGrandChild.Name == "windSpeed")
+                                    {
+                                        windSpeed = greatGrandChild.Attributes["mps"].Value;
+                                    }
+                                    if (greatGrandChild.Name == "temperature")
+                                    {
+                                        high = greatGrandChild.Attributes["max"].Value;
+                                        low = greatGrandChild.Attributes["min"].Value;
+                                    }
+                                }
+                                ForecastClass fc4 = new ForecastClass(high, low, windDirection, windSpeed, rain, date);
+                                days.Add(fc4);
+                                day++;
+                                #endregion
+                                break;
+                            default:
                                 break;
                         }
                     }
@@ -221,9 +322,39 @@ namespace XMLWeather
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void day1Button_Click(object sender, EventArgs e)
+        {
+            minOutput.Text = days[0].high + " C";
+            maxOutput.Text = days[0].low + " C";
+            windDirection.Text = days[0].windDirection;
+            windSpeed.Text = days[0].windSpeed;
+        }
+
+        private void day2Button_Click(object sender, EventArgs e)
+        {
+            minOutput.Text = days[1].high + " C";
+            maxOutput.Text = days[1].low + " C";
+            windDirection.Text = days[1].windDirection;
+            windSpeed.Text = days[1].windSpeed;
+        }
+
+        private void day3Button_Click(object sender, EventArgs e)
         {
 
+            minOutput.Text = days[2].high + " C";
+            maxOutput.Text = days[2].low + " C";
+            windDirection.Text = days[2].windDirection;
+            windSpeed.Text = days[2].windSpeed;
+        }
+
+        private void day4Button_Click(object sender, EventArgs e)
+        {
+
+            minOutput.Text = days[3].high + " C";
+            maxOutput.Text = days[3].low + " C";
+            windDirection.Text = days[3].windDirection;
+            windSpeed.Text = days[3].windSpeed;
         }
     }
 }

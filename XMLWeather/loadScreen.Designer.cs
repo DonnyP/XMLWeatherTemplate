@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.day2Clouds = new System.Windows.Forms.Label();
-            this.day1Clouds = new System.Windows.Forms.Label();
+            this.windDirection = new System.Windows.Forms.Label();
             this.min2Output = new System.Windows.Forms.Label();
             this.max2Output = new System.Windows.Forms.Label();
             this.minOutput = new System.Windows.Forms.Label();
-            this.windDescOut = new System.Windows.Forms.Label();
+            this.windSpeed = new System.Windows.Forms.Label();
             this.currentTempOut = new System.Windows.Forms.Label();
             this.maxOutput = new System.Windows.Forms.Label();
             this.cityOutput = new System.Windows.Forms.Label();
@@ -52,14 +52,14 @@
             this.day2Clouds.TabIndex = 17;
             this.day2Clouds.Text = "day2Clouds";
             // 
-            // day1Clouds
+            // windDirection
             // 
-            this.day1Clouds.AutoSize = true;
-            this.day1Clouds.Location = new System.Drawing.Point(28, 244);
-            this.day1Clouds.Name = "day1Clouds";
-            this.day1Clouds.Size = new System.Drawing.Size(62, 13);
-            this.day1Clouds.TabIndex = 16;
-            this.day1Clouds.Text = "day1Clouds";
+            this.windDirection.AutoSize = true;
+            this.windDirection.Location = new System.Drawing.Point(28, 244);
+            this.windDirection.Name = "windDirection";
+            this.windDirection.Size = new System.Drawing.Size(71, 13);
+            this.windDirection.TabIndex = 16;
+            this.windDirection.Text = "windDirection";
             // 
             // min2Output
             // 
@@ -88,14 +88,14 @@
             this.minOutput.TabIndex = 13;
             this.minOutput.Text = "minOutput";
             // 
-            // windDescOut
+            // windSpeed
             // 
-            this.windDescOut.AutoSize = true;
-            this.windDescOut.Location = new System.Drawing.Point(15, 53);
-            this.windDescOut.Name = "windDescOut";
-            this.windDescOut.Size = new System.Drawing.Size(71, 13);
-            this.windDescOut.TabIndex = 12;
-            this.windDescOut.Text = "windDescOut";
+            this.windSpeed.AutoSize = true;
+            this.windSpeed.Location = new System.Drawing.Point(15, 53);
+            this.windSpeed.Name = "windSpeed";
+            this.windSpeed.Size = new System.Drawing.Size(60, 13);
+            this.windSpeed.TabIndex = 12;
+            this.windSpeed.Text = "windSpeed";
             // 
             // currentTempOut
             // 
@@ -132,7 +132,7 @@
             this.day3Button.TabIndex = 18;
             this.day3Button.Text = "day3Button";
             this.day3Button.UseVisualStyleBackColor = true;
-            this.day3Button.Click += new System.EventHandler(this.button1_Click);
+            this.day3Button.Click += new System.EventHandler(this.day3Button_Click);
             // 
             // day2Button
             // 
@@ -142,6 +142,7 @@
             this.day2Button.TabIndex = 19;
             this.day2Button.Text = "day2Button";
             this.day2Button.UseVisualStyleBackColor = true;
+            this.day2Button.Click += new System.EventHandler(this.day2Button_Click);
             // 
             // day4Button
             // 
@@ -151,6 +152,7 @@
             this.day4Button.TabIndex = 20;
             this.day4Button.Text = "day4Button";
             this.day4Button.UseVisualStyleBackColor = true;
+            this.day4Button.Click += new System.EventHandler(this.day4Button_Click);
             // 
             // day1Button
             // 
@@ -160,6 +162,7 @@
             this.day1Button.TabIndex = 21;
             this.day1Button.Text = "day1Button";
             this.day1Button.UseVisualStyleBackColor = true;
+            this.day1Button.Click += new System.EventHandler(this.day1Button_Click);
             // 
             // loadScreen
             // 
@@ -171,11 +174,11 @@
             this.Controls.Add(this.day2Button);
             this.Controls.Add(this.day3Button);
             this.Controls.Add(this.day2Clouds);
-            this.Controls.Add(this.day1Clouds);
+            this.Controls.Add(this.windDirection);
             this.Controls.Add(this.min2Output);
             this.Controls.Add(this.max2Output);
             this.Controls.Add(this.minOutput);
-            this.Controls.Add(this.windDescOut);
+            this.Controls.Add(this.windSpeed);
             this.Controls.Add(this.currentTempOut);
             this.Controls.Add(this.maxOutput);
             this.Controls.Add(this.cityOutput);
@@ -189,11 +192,11 @@
         #endregion
 
         private System.Windows.Forms.Label day2Clouds;
-        private System.Windows.Forms.Label day1Clouds;
+        private System.Windows.Forms.Label windDirection;
         private System.Windows.Forms.Label min2Output;
         private System.Windows.Forms.Label max2Output;
         private System.Windows.Forms.Label minOutput;
-        private System.Windows.Forms.Label windDescOut;
+        private System.Windows.Forms.Label windSpeed;
         private System.Windows.Forms.Label currentTempOut;
         private System.Windows.Forms.Label maxOutput;
         private System.Windows.Forms.Label cityOutput;
